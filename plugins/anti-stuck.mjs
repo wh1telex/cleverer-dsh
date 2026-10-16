@@ -21,7 +21,8 @@ export const name = 'anti-stuck'
 /** 插件配置（均可选） */
 export const Config = undefined // 用普通对象即可，见 apply 的 config 参数
 
-const PLUGIN_SOURCE = { kind: 'plugin', plugin: 'anti-stuck' }
+// DSH format v4 requires producer-owned source kinds for live messages.
+const PLUGIN_SOURCE = { kind: 'plugin:anti-stuck' }
 
 const DEFAULT_CONFIG = {
   /** 同一指纹连续失败多少次后拒绝下一次相同调用 */
