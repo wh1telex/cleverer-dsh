@@ -26,7 +26,8 @@ import { extractText, isFailure, classifyError, fingerprint, currentTurn, makeCl
 
 export const name = 'discipline-hub'
 
-const PLUGIN_SOURCE = { kind: 'plugin', plugin: name }
+// DSH format v4 requires producer-owned source kinds for live messages.
+const PLUGIN_SOURCE = { kind: `plugin:${name}` }
 
 /** 提醒优先级（数值越小越优先注入） */
 export const REMINDER_PRIORITY = {

@@ -21,7 +21,8 @@ import { randomUUID } from 'node:crypto'
 
 export const name = 'dsh-plan-discipline'
 
-const PLUGIN_SOURCE = { kind: 'plugin', plugin: name }
+// DSH format v4 requires producer-owned source kinds for live messages.
+const PLUGIN_SOURCE = { kind: `plugin:${name}` }
 
 /** 多步骤信号词（用户消息命中即视为需要规划） */
 const STEP_WORDS = [

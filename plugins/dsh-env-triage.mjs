@@ -24,7 +24,8 @@ import { isFailure, extractText, classifyError, similarity, currentTurn, makeCle
 
 export const name = 'dsh-env-triage'
 
-const PLUGIN_SOURCE = { kind: 'plugin', plugin: name }
+// DSH format v4 requires producer-owned source kinds for live messages.
+const PLUGIN_SOURCE = { kind: `plugin:${name}` }
 
 const DEFAULT_CONFIG = {
   /** 溯源卡触发：连续失败 ≥ N 次 */
